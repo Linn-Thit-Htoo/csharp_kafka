@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.35906.104 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp_kafka.Producer", "csharp_kafka.Producer\csharp_kafka.Producer.csproj", "{E1B74969-9ABD-42DE-9749-746D6A716ACF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp_kafka.Consumer", "csharp_kafka.Consumer\csharp_kafka.Consumer.csproj", "{A9E8C322-E2E8-4E5A-8E25-0CB071EE05CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documents", "documents", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A6135A4D-6713-4FAC-A70A-F71A091A5EF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1B74969-9ABD-42DE-9749-746D6A716ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B74969-9ABD-42DE-9749-746D6A716ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B74969-9ABD-42DE-9749-746D6A716ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B74969-9ABD-42DE-9749-746D6A716ACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E8C322-E2E8-4E5A-8E25-0CB071EE05CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E8C322-E2E8-4E5A-8E25-0CB071EE05CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E8C322-E2E8-4E5A-8E25-0CB071EE05CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E8C322-E2E8-4E5A-8E25-0CB071EE05CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1B74969-9ABD-42DE-9749-746D6A716ACF} = {A6135A4D-6713-4FAC-A70A-F71A091A5EF1}
+		{A9E8C322-E2E8-4E5A-8E25-0CB071EE05CD} = {A6135A4D-6713-4FAC-A70A-F71A091A5EF1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD32DAC8-C4C0-4C20-BD15-E8DF0FBF2F45}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+@csharp_kafka.Producer_HostAddress = http://localhost:5002
+
+GET {{csharp_kafka.Producer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
