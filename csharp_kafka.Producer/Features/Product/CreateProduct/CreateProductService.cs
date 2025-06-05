@@ -16,7 +16,8 @@ namespace csharp_kafka.Producer.Features.Product.CreateProduct
 
             var producerconfig = new ProducerConfig
             {
-                BootstrapServers = _appSetting.Kafka.BootstrapServers
+                BootstrapServers = _appSetting.Kafka.BootstrapServers,
+                EnableIdempotence = true
             };
 
             _producer = new ProducerBuilder<Null, string>(producerconfig).Build();
