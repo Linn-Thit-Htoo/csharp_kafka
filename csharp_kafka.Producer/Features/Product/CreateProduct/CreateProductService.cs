@@ -1,5 +1,5 @@
-﻿using Confluent.Kafka;
-using Microsoft.Extensions.Options;
+﻿global using Confluent.Kafka;
+global using Microsoft.Extensions.Options;
 
 namespace csharp_kafka.Producer.Features.Product.CreateProduct;
 
