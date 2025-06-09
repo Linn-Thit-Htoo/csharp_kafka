@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 using csharp_kafka.Producer.Features.Core;
-using Microsoft.AspNetCore.Mvc;
 
 namespace csharp_kafka.Producer.Features.Product.Core;
 
