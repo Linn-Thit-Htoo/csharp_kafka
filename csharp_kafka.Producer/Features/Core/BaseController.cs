@@ -1,7 +1,4 @@
-﻿global using csharp_kafka.Producer.Extensions;
-global using Microsoft.AspNetCore.Mvc;
-
-namespace csharp_kafka.Producer.Features.Core;
+﻿namespace csharp_kafka.Producer.Features.Core;
 
 [Route("api/[controller]")]
 [ApiController]
