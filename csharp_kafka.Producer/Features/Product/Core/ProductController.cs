@@ -1,5 +1,5 @@
-﻿using System.Text.Json;
-using csharp_kafka.Producer.Features.Core;
+﻿global using System.Text.Json;
+global using csharp_kafka.Producer.Features.Core;
 
 namespace csharp_kafka.Producer.Features.Product.Core;
 
