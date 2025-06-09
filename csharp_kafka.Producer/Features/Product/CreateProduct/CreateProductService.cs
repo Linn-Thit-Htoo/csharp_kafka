@@ -17,7 +17,7 @@ public class CreateProductService
         var producerconfig = new ProducerConfig
         {
             BootstrapServers = _appSetting.Kafka.BootstrapServers,
-            EnableIdempotence = true
+            EnableIdempotence = true,
         };
 
         _producer = new ProducerBuilder<Null, string>(producerconfig).Build();
@@ -27,7 +27,7 @@ public class CreateProductService
     {
         try
         {
-            var kafkamessage = new Message<Null, string> { Value = message, };
+            var kafkamessage = new Message<Null, string> { Value = message };
 
             await _producer.ProduceAsync(topic, kafkamessage);
         }
