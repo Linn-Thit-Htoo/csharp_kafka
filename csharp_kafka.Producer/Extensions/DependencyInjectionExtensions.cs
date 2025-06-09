@@ -1,5 +1,5 @@
-﻿using csharp_kafka.Producer.Configurations;
-using csharp_kafka.Producer.Features.Product.CreateProduct;
+﻿global using csharp_kafka.Producer.Configurations;
+global using csharp_kafka.Producer.Features.Product.CreateProduct;
 
 namespace csharp_kafka.Producer.Extensions;
 
