@@ -17,7 +17,7 @@ public class ProductController : BaseController
     [HttpPost("CreateProduct")]
     public async Task<IActionResult> CreateProduct(CreateProductRequest request)
     {
-        var message = JsonSerializer.Serialize(request);
+        var message = System.Text.Json.JsonSerializer.Serialize(request);
         await _createProductService.ProduceAsync("ProductTopic", message);
 
         return Content("Saving Product Successfully.");
