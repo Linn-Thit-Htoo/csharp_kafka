@@ -1,4 +1,3 @@
-using csharp_kafka.Producer.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
