@@ -1,6 +1,4 @@
-﻿global using Newtonsoft.Json;
-
-namespace csharp_kafka.Producer.Extensions;
+﻿namespace csharp_kafka.Producer.Extensions;
 
 public static class Extension
 {
