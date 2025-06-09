@@ -1,4 +1,3 @@
-using csharp_kafka.Consumer.Configurations;
 using csharp_kafka.Consumer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
