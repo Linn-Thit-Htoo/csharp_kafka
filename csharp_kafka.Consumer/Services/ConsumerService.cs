@@ -1,8 +1,4 @@
-﻿global using Confluent.Kafka;
-global using csharp_kafka.Consumer.Configurations;
-global using Microsoft.Extensions.Options;
-
-namespace csharp_kafka.Consumer.Services;
+﻿namespace csharp_kafka.Consumer.Services;
 
 public class ConsumerService : BackgroundService
 {
