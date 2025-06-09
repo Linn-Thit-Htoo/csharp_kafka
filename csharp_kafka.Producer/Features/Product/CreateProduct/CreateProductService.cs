@@ -1,7 +1,4 @@
-﻿global using Confluent.Kafka;
-global using Microsoft.Extensions.Options;
-
-namespace csharp_kafka.Producer.Features.Product.CreateProduct;
+﻿namespace csharp_kafka.Producer.Features.Product.CreateProduct;
 
 public class CreateProductService
 {
