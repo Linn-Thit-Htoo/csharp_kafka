@@ -3,26 +3,25 @@ using csharp_kafka.Producer.Features.Product.CreateProduct;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
-namespace csharp_kafka.Producer.Features.Product.Core
+namespace csharp_kafka.Producer.Features.Product.Core;
+
+[Route("api/v1/[controller]")]
+[ApiController]
+public class ProductController : BaseController
 {
-    [Route("api/v1/[controller]")]
-    [ApiController]
-    public class ProductController : BaseController
+    private readonly CreateProductService _createProductService;
+
+    public ProductController(CreateProductService createProductService)
     {
-        private readonly CreateProductService _createProductService;
+        _createProductService = createProductService;
+    }
 
-        public ProductController(CreateProductService createProductService)
-        {
-            _createProductService = createProductService;
-        }
+    [HttpPost("CreateProduct")]
+    public async Task<IActionResult> CreateProduct(CreateProductRequest request)
+    {
+        var message = JsonSerializer.Serialize(request);
+        await _createProductService.ProduceAsync("ProductTopic", message);
 
-        [HttpPost("CreateProduct")]
-        public async Task<IActionResult> CreateProduct(CreateProductRequest request)
-        {
-            var message = JsonSerializer.Serialize(request);
-            await _createProductService.ProduceAsync("ProductTopic", message);
-
-            return Content("Saving Product Successfully.");
-        }
+        return Content("Saving Product Successfully.");
     }
 }
