@@ -1,6 +1,5 @@
-﻿namespace csharp_kafka.Consumer
+﻿namespace csharp_kafka.Consumer;
+
+public class GlobalUsings
 {
-    public class GlobalUsings
-    {
-    }
 }
