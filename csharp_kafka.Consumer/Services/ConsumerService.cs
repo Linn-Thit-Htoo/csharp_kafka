@@ -2,47 +2,46 @@
 using csharp_kafka.Consumer.Configurations;
 using Microsoft.Extensions.Options;
 
-namespace csharp_kafka.Consumer.Services
+namespace csharp_kafka.Consumer.Services;
+
+public class ConsumerService : BackgroundService
 {
-    public class ConsumerService : BackgroundService
+    private readonly IConsumer<Ignore, string> _consumer;
+    private readonly ILogger<ConsumerService> _logger;
+    private readonly AppSetting _appSetting;
+
+    public ConsumerService(ILogger<ConsumerService> logger, IOptions<AppSetting> setting)
     {
-        private readonly IConsumer<Ignore, string> _consumer;
-        private readonly ILogger<ConsumerService> _logger;
-        private readonly AppSetting _appSetting;
+        _logger = logger;
+        _appSetting = setting.Value;
 
-        public ConsumerService(ILogger<ConsumerService> logger, IOptions<AppSetting> setting)
+        var consumerConfig = new ConsumerConfig
         {
-            _logger = logger;
-            _appSetting = setting.Value;
+            BootstrapServers = _appSetting.Kafka.BootstrapServers,
+            GroupId = "ProductConsumerGroup",
+            AutoOffsetReset = AutoOffsetReset.Earliest
+        };
 
-            var consumerConfig = new ConsumerConfig
-            {
-                BootstrapServers = _appSetting.Kafka.BootstrapServers,
-                GroupId = "ProductConsumerGroup",
-                AutoOffsetReset = AutoOffsetReset.Earliest
-            };
+        _consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
+    }
 
-            _consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
-        }
+    protected async override Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        _consumer.Subscribe("ProductTopic");
 
-        protected async override Task ExecuteAsync(CancellationToken stoppingToken)
+        while (!stoppingToken.IsCancellationRequested)
         {
-            _consumer.Subscribe("ProductTopic");
-
-            while (!stoppingToken.IsCancellationRequested)
+            try
             {
-                try
-                {
-                    var consumeResult = _consumer.Consume(stoppingToken);
+                var consumeResult = _consumer.Consume(stoppingToken);
 
-                    var message = consumeResult.Message.Value;
+                var message = consumeResult.Message.Value;
 
-                    _logger.LogInformation($"Received inventory update: {message}");
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError($"Error processing Kafka message: {ex.Message}");
-                }
+                _logger.LogInformation($"Received inventory update: {message}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error processing Kafka message: {ex.Message}");
             }
         }
     }
