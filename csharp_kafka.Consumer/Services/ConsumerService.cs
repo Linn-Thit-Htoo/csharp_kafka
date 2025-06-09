@@ -19,13 +19,13 @@ public class ConsumerService : BackgroundService
         {
             BootstrapServers = _appSetting.Kafka.BootstrapServers,
             GroupId = "ProductConsumerGroup",
-            AutoOffsetReset = AutoOffsetReset.Earliest
+            AutoOffsetReset = AutoOffsetReset.Earliest,
         };
 
         _consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
     }
 
-    protected async override Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         _consumer.Subscribe("ProductTopic");
 
