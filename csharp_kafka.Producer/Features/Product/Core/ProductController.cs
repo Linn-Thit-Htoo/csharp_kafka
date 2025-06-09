@@ -1,7 +1,7 @@
-﻿using csharp_kafka.Producer.Features.Core;
+﻿using System.Text.Json;
+using csharp_kafka.Producer.Features.Core;
 using csharp_kafka.Producer.Features.Product.CreateProduct;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 
 namespace csharp_kafka.Producer.Features.Product.Core;
 
