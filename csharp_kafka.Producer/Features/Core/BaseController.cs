@@ -1,5 +1,4 @@
 ﻿using csharp_kafka.Producer.Extensions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace csharp_kafka.Producer.Features.Core
