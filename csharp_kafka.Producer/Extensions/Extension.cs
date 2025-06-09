@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿global using Newtonsoft.Json;
 
 namespace csharp_kafka.Producer.Extensions;
 
