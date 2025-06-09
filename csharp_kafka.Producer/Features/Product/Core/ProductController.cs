@@ -1,6 +1,4 @@
-﻿global using csharp_kafka.Producer.Features.Core;
-
-namespace csharp_kafka.Producer.Features.Product.Core;
+﻿namespace csharp_kafka.Producer.Features.Product.Core;
 
 [Route("api/v1/[controller]")]
 [ApiController]
